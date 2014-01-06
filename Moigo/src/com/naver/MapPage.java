@@ -3,23 +3,28 @@ package com.naver;
 import com.nhn.android.maps.NMapActivity;
 import com.nhn.android.maps.NMapController;
 import com.nhn.android.maps.NMapLocationManager;
+import com.nhn.android.maps.NMapOverlay;
+import com.nhn.android.maps.NMapOverlayItem;
 import com.nhn.android.maps.NMapView;
 import com.nhn.android.maps.NMapView.OnMapStateChangeListener;
 import com.nhn.android.maps.maplib.NGeoPoint;
 import com.nhn.android.maps.nmapmodel.NMapError;
 import com.nhn.android.maps.overlay.NMapPOIdata;
+import com.nhn.android.mapviewer.overlay.NMapCalloutOverlay;
 import com.nhn.android.mapviewer.overlay.NMapOverlayManager;
+import com.nhn.android.mapviewer.overlay.NMapOverlayManager.OnCalloutOverlayListener;
 import com.nhn.android.mapviewer.overlay.NMapPOIdataOverlay;
 import com.nhn.android.mapviewer.overlay.NMapResourceProvider;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.graphics.Rect;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.widget.LinearLayout;
 
-public class MapPage extends NMapActivity implements OnMapStateChangeListener {
+public class MapPage extends NMapActivity implements OnMapStateChangeListener, OnCalloutOverlayListener  {
 
 	// API-KEY
 	private static final String API_KEY = "1f40521fac2fb495cd1b701ead930471";
@@ -69,6 +74,10 @@ public class MapPage extends NMapActivity implements OnMapStateChangeListener {
 				mOverlayManager = new NMapOverlayManager(this, mMapView, mMapViewerResourceProvider);
 				
 				// 오버레이들을 관리하기 위한 id값 생성
+			
+			}
+	
+			public void onMapClick() {
 				int markerId = NMapPOIflagType.PIN;
 
 				// 표시할 위치 데이터를 지정한다. 마지막 인자가 오버레이를 인식하기 위한 id값
@@ -106,6 +115,13 @@ public class MapPage extends NMapActivity implements OnMapStateChangeListener {
 			}
 
 			
+			@Override
+			public NMapCalloutOverlay onCreateCalloutOverlay(NMapOverlay arg0,NMapOverlayItem arg1, Rect arg2) {
+	
+				return null;
+			}
+			
+			
 			private void startMyLocation() {
 
 				mMapLocationManager = new NMapLocationManager(this);
@@ -126,9 +142,8 @@ public class MapPage extends NMapActivity implements OnMapStateChangeListener {
 
 				@Override
 				public void onLongPress(NMapView mapView, MotionEvent ev) {
-					
-					
-
+					onMapClick();
+					//ev.
 					// 오버레이 관리자 추가
 					
 
@@ -137,6 +152,7 @@ public class MapPage extends NMapActivity implements OnMapStateChangeListener {
 				@Override
 				public void onLongPressCanceled(NMapView mapView) {
 					// TODO Auto-generated method stub
+					
 
 				}
 
