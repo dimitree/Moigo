@@ -47,7 +47,12 @@ public class MakeGroup extends Activity {
 		btn2.setOnClickListener(new Button.OnClickListener() {
 			public void onClick(View v) {
 				setDataToDb();
-				//추가 구현
+				Intent intetn1 = new Intent(MakeGroup.this , MessageSendPage.class);
+				//intetn1.putExtra("Name", Value);
+				//startActivityForResult(intetn1,MakeGroupActivityCode);
+				
+//				startActivityForResult(intetn1,MetrailActivityCode);
+				startActivity(intetn1);
 			}
 		});
     }
