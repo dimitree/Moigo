@@ -49,15 +49,6 @@
         android:text="위치"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="74dp"
-        android:text="저장" />
-
     <EditText
         android:id="@+id/editText1"
         android:layout_width="wrap_content"
@@ -87,7 +78,7 @@
         android:inputType="textEmailAddress" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/locationText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@+id/textView4"
@@ -98,13 +89,21 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="56dp"
+        android:text="저장" />
+
+    <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView4"
-        android:layout_alignBottom="@+id/textView4"
-        android:layout_marginLeft="12dp"
-        android:layout_toRightOf="@+id/textView3"
+        android:layout_above="@+id/button1"
+        android:layout_alignLeft="@+id/textView4"
+        android:layout_marginBottom="15dp"
         android:text="위치 설정" />
 
 </RelativeLayout>
